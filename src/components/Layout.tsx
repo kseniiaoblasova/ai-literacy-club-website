@@ -1,0 +1,17 @@
+import { Outlet } from "react-router-dom";
+import { Navbar } from "./Navbar";
+import { Footer } from "./Footer";
+
+export function Layout() {
+  return (
+    <div className="flex flex-col min-h-screen relative">
+      <div className="noise-bg" />
+      <div className="stars" />
+      <Navbar />
+      <main className="flex-grow">
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
+  );
+}
