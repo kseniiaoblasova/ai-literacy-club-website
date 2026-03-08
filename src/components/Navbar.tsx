@@ -9,6 +9,7 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Home", path: "/" },
+    { name: "Join the Club", path: "/join" },
     { name: "Meetings", path: "/meetings" },
     { name: "Executive Team", path: "/team" },
   ];
@@ -27,7 +28,7 @@ export function Navbar() {
               </span>
             </Link>
           </div>
-          
+
           {/* Desktop Nav */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">

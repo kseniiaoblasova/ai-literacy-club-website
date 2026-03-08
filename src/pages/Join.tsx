@@ -134,6 +134,7 @@ export function Join() {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6 }}
                     className="glass-panel p-10 md:p-16 rounded-3xl text-center flex flex-col items-center border border-cyan-500/30"
                 >
                     <div className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mb-6">
@@ -162,6 +163,7 @@ export function Join() {
                 <motion.h1
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
                     className="text-4xl md:text-5xl font-display font-extrabold tracking-tighter text-white mb-4 glow-text"
                 >
                     Join the Club
@@ -169,7 +171,7 @@ export function Join() {
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.1 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
                     className="text-lg text-gray-300 max-w-2xl mx-auto"
                 >
                     Interested in learning more about Artificial Intelligence, its fascinating use cases and impact on the world? Fill out this form and we will reach out to you shortly!
@@ -179,7 +181,7 @@ export function Join() {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
                 className="glass-panel rounded-3xl p-6 md:p-10 border border-blue-500/20"
             >
                 <form onSubmit={handleSubmit} className="space-y-8">
