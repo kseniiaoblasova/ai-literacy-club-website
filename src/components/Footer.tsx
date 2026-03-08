@@ -1,6 +1,6 @@
 import { SOCIAL_LINKS } from "../data";
 import { Link } from "react-router-dom";
-import { Instagram, MessageSquare, Video, Mail, ExternalLink } from "lucide-react";
+import { Instagram, MessageSquare, Video, Mail, ExternalLink, Rocket, Github, Twitter, Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -31,9 +31,9 @@ export function Footer() {
                 <Link to="/team" className="text-gray-400 hover:text-white transition-colors duration-200">Executive Team</Link>
               </li>
               <li>
-                <a href={SOCIAL_LINKS.registration} target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 transition-colors duration-200 flex items-center gap-1">
+                <Link to="/join" className="text-indigo-400 hover:text-indigo-300 transition-colors duration-200 flex items-center gap-1">
                   Join the Club <ExternalLink className="w-3 h-3" />
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
