@@ -98,8 +98,8 @@ export function Join() {
             // Use the test webhook URL during local development so n8n can "Listen for test event"
             // @ts-ignore
             const webhookUrl = import.meta.env.DEV
-                ? "https://n8n-production-cf3f.up.railway.app/webhook-test/6f790fd5-7bf0-43fb-a39c-5f60ac325384"
-                : "https://n8n-production-cf3f.up.railway.app/webhook/6f790fd5-7bf0-43fb-a39c-5f60ac325384";
+                ? "https://n8n-production-cf3f.up.railway.app/webhook-test/e3162c6d-da1f-4397-bdf6-f436c134e9eb"
+                : "https://n8n-production-cf3f.up.railway.app/webhook/e3162c6d-da1f-4397-bdf6-f436c134e9eb";
 
             const response = await fetch(webhookUrl, {
                 method: "POST",
