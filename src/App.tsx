@@ -9,10 +9,12 @@ import { Home } from "./pages/Home";
 import { Meetings } from "./pages/Meetings";
 import { Team } from "./pages/Team";
 import { Join } from "./pages/Join";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
