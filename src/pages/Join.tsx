@@ -104,7 +104,9 @@ export function Join() {
             const response = await fetch(webhookUrl, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json",
+                    // Changing Content-Type to text/plain prevents the browser from sending an OPTIONS preflight request.
+                    // n8n will still parse the JSON body correctly.
+                    "Content-Type": "text/plain",
                 },
                 body: JSON.stringify(payload),
             });
