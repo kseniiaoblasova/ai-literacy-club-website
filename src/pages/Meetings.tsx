@@ -34,7 +34,7 @@ export function Meetings() {
             <h2 className="text-2xl font-display font-bold text-white glow-text">Upcoming Meetings</h2>
             <div className="h-px bg-gradient-to-r from-cyan-500/50 to-transparent flex-grow" />
           </div>
-          
+
           {upcomingMeetings.length > 0 ? (
             <div className="grid gap-8">
               {upcomingMeetings.map((meeting, index) => (
@@ -46,29 +46,33 @@ export function Meetings() {
                   className="glass-panel rounded-2xl p-6 md:p-8 border border-cyan-500/30 hover:border-cyan-400/50 transition-colors relative overflow-hidden group"
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl -mr-16 -mt-16 group-hover:bg-cyan-400/20 transition-colors duration-500" />
-                  
+
                   <div className="flex flex-col md:flex-row gap-6 md:gap-12 relative z-10">
                     <div className="md:w-1/3 flex flex-col gap-4">
                       <div className="flex items-center gap-3 text-cyan-300">
                         <Calendar className="w-5 h-5" />
                         <span className="font-semibold">{meeting.date}</span>
                       </div>
-                      <div className="flex items-center gap-3 text-gray-300">
-                        <Clock className="w-5 h-5 text-indigo-400" />
-                        <span>{meeting.time}</span>
-                      </div>
-                      <div className="flex items-center gap-3 text-gray-300">
-                        <MapPin className="w-5 h-5 text-blue-400" />
-                        <span>{meeting.location}</span>
-                      </div>
+                      {meeting.time && (
+                        <div className="flex items-center gap-3 text-gray-300">
+                          <Clock className="w-5 h-5 text-indigo-400" />
+                          <span>{meeting.time}</span>
+                        </div>
+                      )}
+                      {meeting.location && (
+                        <div className="flex items-center gap-3 text-gray-300">
+                          <MapPin className="w-5 h-5 text-blue-400" />
+                          <span>{meeting.location}</span>
+                        </div>
+                      )}
                     </div>
-                    
+
                     <div className="md:w-2/3">
                       <h3 className="text-2xl font-bold text-white mb-4">{meeting.title}</h3>
                       <p className="text-gray-300 leading-relaxed mb-6">
                         {meeting.description}
                       </p>
-                      
+
                       {meeting.materials && meeting.materials.length > 0 && (
                         <div>
                           <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Meeting Materials</h4>
@@ -107,7 +111,7 @@ export function Meetings() {
             <h2 className="text-2xl font-display font-bold text-white glow-text">Past Meetings</h2>
             <div className="h-px bg-gradient-to-r from-blue-500/50 to-transparent flex-grow" />
           </div>
-          
+
           <div className="grid gap-6">
             {pastMeetings.map((meeting, index) => (
               <motion.div
@@ -121,15 +125,24 @@ export function Meetings() {
                 <div className="flex flex-col md:flex-row gap-4 md:gap-8">
                   <div className="md:w-1/4 flex flex-col gap-2">
                     <span className="text-sm font-semibold text-blue-300">{meeting.date}</span>
-                    <span className="text-xs text-gray-500">{meeting.time}</span>
+                    {meeting.time && <span className="text-xs text-gray-500">{meeting.time}</span>}
+                    {(meeting as any).image && (
+                      <div className="mt-2 pr-4">
+                        <img
+                          src={(meeting as any).image}
+                          alt={`${meeting.title} Flyer`}
+                          className="w-full max-w-[200px] h-auto rounded-lg border border-white/10 shadow-lg object-cover"
+                        />
+                      </div>
+                    )}
                   </div>
-                  
+
                   <div className="md:w-3/4">
                     <h3 className="text-xl font-bold text-white mb-2">{meeting.title}</h3>
                     <p className="text-gray-400 text-sm leading-relaxed mb-4">
                       {meeting.description}
                     </p>
-                    
+
                     {meeting.materials && meeting.materials.length > 0 && (
                       <div className="flex flex-wrap gap-2">
                         {meeting.materials.map((material, i) => (
@@ -140,8 +153,8 @@ export function Meetings() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/5 hover:bg-white/10 text-xs text-gray-300 transition-colors"
                           >
-                            <FileText className="w-3 h-3" />
-                            {material.name}
+                            <FileText className="w-3 h-3 shrink-0" />
+                            <span className="truncate max-w-xs">{material.name}</span>
                           </a>
                         ))}
                       </div>

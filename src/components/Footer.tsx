@@ -12,10 +12,10 @@ export function Footer() {
               AI Literacy & Exploration Club
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-              San Diego Mesa College's premier community for exploring, understanding, and shaping the future of Artificial Intelligence.
+              San Diego Mesa College's community for exploring, understanding, and shaping the future of Artificial Intelligence.
             </p>
           </div>
-          
+
           <div>
             <h4 className="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">
               Quick Links
@@ -37,7 +37,7 @@ export function Footer() {
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">
               Connect With Us
@@ -56,8 +56,8 @@ export function Footer() {
                 <Video className="h-6 w-6" />
               </a>
             </div>
-            
-            <a 
+
+            <a
               href={SOCIAL_LINKS.newsletter}
               target="_blank"
               rel="noopener noreferrer"
@@ -68,7 +68,7 @@ export function Footer() {
             </a>
           </div>
         </div>
-        
+
         <div className="mt-12 pt-8 border-t border-white/10 text-center">
           <p className="text-gray-500 text-sm">
             &copy; {new Date().getFullYear()} AI Literacy & Exploration Club. San Diego Mesa College.
