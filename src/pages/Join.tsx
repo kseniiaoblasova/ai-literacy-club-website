@@ -101,20 +101,25 @@ export function Join() {
                 ? "https://n8n-production-cf3f.up.railway.app/webhook-test/e3162c6d-da1f-4397-bdf6-f436c134e9eb"
                 : "https://n8n-production-cf3f.up.railway.app/webhook/e3162c6d-da1f-4397-bdf6-f436c134e9eb";
 
-            const response = await fetch(webhookUrl, {
-                method: "POST",
-                headers: {
-                    // Changing Content-Type to text/plain prevents the browser from sending an OPTIONS preflight request.
-                    // n8n will still parse the JSON body correctly.
-                    "Content-Type": "text/plain",
-                },
-                body: JSON.stringify(payload),
+            // 1. Convert our payload into a Blob (binary file)
+            const fileBlob = new Blob([JSON.stringify(payload, null, 2)], {
+                type: "application/json"
             });
 
-            if (!response.ok) {
-                throw new Error("Failed to submit form. Please try again.");
-            }
+            // 2. Wrap it inside a FormData object to be sent as a multipart/form-data upload
+            const formData = new FormData();
+            formData.append("submissionData", fileBlob, "application.json");
 
+            // 3. Send using no-cors to completely ignore strict browser CORS policies.
+            // Note: In no-cors mode, the browser cannot read the response status or body, 
+            // so response.ok will be false (opaque response). We assume success if fetch doesn't throw.
+            await fetch(webhookUrl, {
+                method: "POST",
+                body: formData,
+                mode: "no-cors",
+            });
+
+            // Since we use no-cors, we can't check response.ok. We rely on the try/catch.
             setIsSubmitted(true);
         } catch (err: any) {
             setError(err.message || "An unexpected error occurred.");
