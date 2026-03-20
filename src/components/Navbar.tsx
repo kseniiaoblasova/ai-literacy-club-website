@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Rocket } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "../lib/utils";
 
@@ -20,10 +20,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-2 group">
-              <div className="p-2 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-lg group-hover:glow-border transition-all duration-300">
-                <Rocket className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-display font-bold text-xl tracking-tighter text-white group-hover:glow-text transition-all duration-300">
+<span className="font-display font-bold text-xl tracking-tighter text-white group-hover:glow-text transition-all duration-300">
                 AI Literacy & Exploration
               </span>
             </Link>
